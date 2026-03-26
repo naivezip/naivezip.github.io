@@ -14,18 +14,23 @@
   
 
   
-  <title>Archives: 2026 | 莫愁前路无知己</title>
+  <title>CS61A ants p3n4 | 莫愁前路无知己</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="莫愁前路无知己">
-<meta property="og:url" content="https://naivezip.github.io/archives/2026/index.html">
+  <meta name="description" content="类的使用以及对象隐喻 对象隐喻CS61A中提到对象隐喻,实际上是一种黑盒思想，在对对象进行操作的时候，要把对象当作一个黑盒，不用去关心里面的属性是如何实现的。 类的编写编写一个类，实现其属性和方法的时候，是将整个类当作函数去编写的，但是与函数不同的是，类里面的方法和类本身不是级联关系，即方法的父帧不是类所属的帧，而是存在于类的全局环境中 例如: 12345678910111213141516171">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CS61A ants p3n4">
+<meta property="og:url" content="https://naivezip.github.io/2026/03/26/CS61A-ants-p3n4/index.html">
 <meta property="og:site_name" content="莫愁前路无知己">
+<meta property="og:description" content="类的使用以及对象隐喻 对象隐喻CS61A中提到对象隐喻,实际上是一种黑盒思想，在对对象进行操作的时候，要把对象当作一个黑盒，不用去关心里面的属性是如何实现的。 类的编写编写一个类，实现其属性和方法的时候，是将整个类当作函数去编写的，但是与函数不同的是，类里面的方法和类本身不是级联关系，即方法的父帧不是类所属的帧，而是存在于类的全局环境中 例如: 12345678910111213141516171">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-03-26T04:06:17.000Z">
+<meta property="article:modified_time" content="2026-03-26T04:58:02.968Z">
 <meta property="article:author" content="naive">
+<meta property="article:tag" content="class">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="莫愁前路无知己" type="application/atom+xml">
@@ -169,44 +174,77 @@
     <div id="content-body">
        
 
-<div class="archive-main-card">
-    <div class="archive-top">
-      <div class="main-title-bar">
-        <div class="main-title-dot"></div>
-        <h1 class="article-title">Archives</h1>
-      </div>    
+
+<article id="post-CS61A-ants-p3n4" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        CS61A ants p3n4
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2026-03-26T04:06:17.000Z" itemprop="datePublished">2026-03-26</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/CS61A/">CS61A</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            1.4k words 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/class/" rel="tag">class</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h2 id="类的使用以及对象隐喻"><a href="#类的使用以及对象隐喻" class="headerlink" title="类的使用以及对象隐喻"></a>类的使用以及对象隐喻</h2><hr>
+<h3 id="对象隐喻"><a href="#对象隐喻" class="headerlink" title="对象隐喻"></a>对象隐喻</h3><p>CS61A中提到<a target="_blank" rel="noopener" href="https://composingprograms.netlify.app/2/4#_2-4-1-%E5%AF%B9%E8%B1%A1%E9%9A%90%E5%96%BB">对象隐喻</a>,实际上是一种黑盒思想，在对对象进行操作的时候，要把对象当作一个黑盒，不用去关心里面的属性是如何实现的。</p>
+<h3 id="类的编写"><a href="#类的编写" class="headerlink" title="类的编写"></a>类的编写</h3><p>编写一个类，实现其属性和方法的时候，是将整个类当作函数去编写的，但是与函数不同的是，类里面的方法和类本身不是级联关系，即方法的父帧不是类所属的帧，而是存在于类的全局环境中</p>
+<p>例如:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ThrowerAnt</span>(<span class="title class_ inherited__">Ant</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;ThrowerAnt throws a leaf each turn at the nearest Bee in its range.&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    name = <span class="string">&#x27;Thrower&#x27;</span></span><br><span class="line">    implemented = <span class="literal">True</span></span><br><span class="line">    damage = <span class="number">1</span></span><br><span class="line">    <span class="comment"># ADD/OVERRIDE CLASS ATTRIBUTES HERE</span></span><br><span class="line">    upper_bound = <span class="built_in">float</span>(<span class="string">&#x27;inf&#x27;</span>)</span><br><span class="line">    lower_bound = <span class="number">0</span></span><br><span class="line">    food_cost = <span class="number">3</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">nearest_bee</span>(<span class="params">self</span>) -&gt; Bee | <span class="literal">None</span>:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;Return a random Bee from the nearest Place (excluding the Hive) that contains Bees and is reachable from</span></span><br><span class="line"><span class="string">        the ThrowerAnt&#x27;s Place by following entrances.</span></span><br><span class="line"><span class="string">D</span></span><br><span class="line"><span class="string">        This method returns None if there is no such Bee (or none in range).</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        distance = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> <span class="variable language_">self</span>.place:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span>  <span class="comment"># An Ant that is not in a Place has no nearest Bee</span></span><br><span class="line">        <span class="comment"># BEGIN Problem 3 and 4</span></span><br><span class="line">        new_place = <span class="variable language_">self</span>.place</span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">not</span> new_place.is_hive: </span><br><span class="line">            <span class="keyword">if</span> <span class="variable language_">self</span>.lower_bound &lt;= distance &lt;= <span class="variable language_">self</span>.upper_bound:</span><br><span class="line">                <span class="keyword">if</span> new_place.bees:</span><br><span class="line">                    <span class="keyword">return</span> random_bee(new_place.bees)</span><br><span class="line">            new_place = new_place.entrance</span><br><span class="line">            distance += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        <span class="comment"># END Problem 3 and 4</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>这里的<code>distance</code>变量必须存在于<code>nearest_bee</code>方法中，如果<code>distance</code>作为类属性，那么在实例调用<code>nearest_bee</code>方法的时候就会搜索不到<code>distance</code>的值，就会产生<code>NameError</code></p>
+<h4 id="类的全局环境"><a href="#类的全局环境" class="headerlink" title="类的全局环境"></a>类的全局环境</h4><p>Python的变量查找遵循<a target="_blank" rel="noopener" href="https://composingprograms.netlify.app/1/3#_1-3-1-%E7%8E%AF%E5%A2%83">LEGB原则</a>，当类创建的时候，其在全局帧（global frame）会绑定一个名称，这个类的方法却在一个局部帧（local frame）中,这个局部帧的父帧是全局帧，即方法的调用&#x2F;执行遵守的是LEGB原则</p>
+<h4 id="对象的继承（MRO）"><a href="#对象的继承（MRO）" class="headerlink" title="对象的继承（MRO）"></a>对象的继承（MRO）</h4><p>对类的查找并不在LEGB链中，而是遵守另一套规则<strong>MRO(Method Resolution Order)</strong>,与LEGB链类似的是，在当前类中没找到的属性，Python会自动向父类（base class）查找,需要注意的是，MRO规则和帧没有关系，这里也就说明了为什么<code>distance</code>不能作为类属性存在而是要在<code>nearest_bee</code>方法中了</p>
+
+        
+      </div>
+
+         
     </div>
     
-    
-      
-      
-        
-        <div class="year-line">
-            <div class="year-num">2026</div>
-            <div class="dot-wrapper">
-                <div class="dot"></div>
-            </div>
-            <div class="article-count">1 article</div>
-        </div>
-      
-      <a class="archive-article-link" href="/2026/03/26/CS61A-ants-p3n4/" title="CS61A ants p3n4">
-        <div class="date">03-26</div>
-        <div class="line">
-            <div class="dot"></div>
-        </div>
-        <div class="title">
-            <div class="title-inner">
-                
-                    CS61A ants p3n4
-                
-            </div>
-        </div>
-        <div class="tags">
-            #class
-        </div>
-      </a>
-    
+     
   </div>
+  
+    
+
+  
+</article>
+
+
+
+
+
     </div>
     <div id="footer-wrapper">
       <footer id="footer">
