@@ -1,0 +1,95 @@
+/* ============================================================
+   Vivia 主题高级透明装修方案 (CS61A 笔记适配版)
+   ============================================================ */
+
+/* --- 1. 核心背景层 --- */
+body {
+    background: url('/images/background.jpg') no-repeat center center fixed !important;
+    background-size: cover !important;
+    filter: brightness(1.1); /* 解决画面太黑 */
+    margin: 0;
+    padding: 0;
+}
+
+/* --- 2. 容器透明化与毛玻璃效果 --- */
+#nav, 
+.main-body, 
+.sidebar-widget, 
+.post-card, 
+#content-body,
+#footer-wrapper {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(12px) saturate(160%);
+    -webkit-backdrop-filter: blur(12px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2) !important;
+    margin-bottom: 20px;
+}
+
+/* --- 3. CS61A 代码块深度优化 --- */
+/* 技术笔记最核心的部分：确保代码清晰好读 */
+pre, .highlight {
+    background: rgba(20, 20, 20, 0.7) !important; /* 深色背景，与代码高亮形成对比 */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px !important;
+    padding: 10px !important;
+}
+
+/* 行内小代码块 (例如：`print()`) */
+p code, li code {
+    background: rgba(129, 218, 255, 0.2) !important;
+    color: #81daff !important;
+    padding: 2px 6px !important;
+    border-radius: 4px;
+    font-family: 'Fira Code', 'Courier New', monospace;
+}
+
+/* --- 4. 标签云 (Tags) 极客风格优化 --- */
+.tag-list-item a {
+    display: inline-block;
+    padding: 2px 10px;
+    margin: 4px;
+    background: rgba(129, 218, 255, 0.1) !important;
+    border: 1px solid rgba(129, 218, 255, 0.3) !important;
+    border-radius: 15px; /* 胶囊形状 */
+    color: #81daff !important;
+    font-size: 12px !important;
+    transition: all 0.3s ease;
+}
+
+.tag-list-item a:hover {
+    background: rgba(129, 218, 255, 0.3) !important;
+    box-shadow: 0 0 12px rgba(129, 218, 255, 0.5);
+    color: #fff !important;
+    transform: translateY(-2px);
+}
+
+/* --- 5. 文字清晰度与细节 --- */
+.post-title, 
+.post-content, 
+.sidebar-author-name,
+.category-list-item a {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* 侧边栏头像交互 */
+.sidebar-avatar-img {
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    transition: transform 0.4s ease;
+}
+.sidebar-avatar-img:hover {
+    transform: scale(1.05) rotate(3deg);
+}
+
+/* --- 6. 模式适配与清理 --- */
+[theme="dark"] .main-body, 
+[theme="dark"] .sidebar-widget,
+[theme="dark"] .post-card {
+    background: rgba(0, 0, 0, 0.25) !important;
+}
+
+.banner-container, #banner {
+    background: transparent !important;
+}

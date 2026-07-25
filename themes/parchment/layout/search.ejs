@@ -1,0 +1,9 @@
+<div class="panel page-card">
+  <h1 class="page-title">搜索</h1>
+  <input id="search-input" class="search-box" type="search"
+         placeholder="输入关键词，搜索标题 / 分类 / 标签 / 正文…" autocomplete="off">
+  <div id="search-meta" class="meta search-meta"></div>
+  <div id="search-results"></div>
+</div>
+<script>window.SEARCH_INDEX_URL = '<%- url_for('/search.json') %>';</script>
+<script src="<%- url_for('/js/search.js') %>"></script>

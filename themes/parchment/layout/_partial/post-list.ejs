@@ -1,0 +1,27 @@
+<% posts.forEach(function (post) {
+  var ex = strip_html(post.excerpt || post.content || '').trim().replace(/\s+/g, ' ');
+  if (ex.length > 160) ex = ex.substring(0, 160) + '…';
+%>
+  <article class="panel post-item">
+    <h2 class="post-item-title">
+      <a href="<%- url_for(post.path) %>"><%= post.title || '(无标题)' %></a>
+    </h2>
+    <div class="meta">
+      <time datetime="<%= date(post.date, 'YYYY-MM-DD') %>"><%= date(post.date, 'YYYY-MM-DD') %></time>
+      <% if (post.categories && post.categories.length) { %>
+        <span class="meta-sep">·</span>
+        <% post.categories.forEach(function (c) { %>
+          <a class="meta-link" href="<%- url_for(c.path) %>"><%= c.name %></a>
+        <% }) %>
+      <% } %>
+      <% if (post.tags && post.tags.length) { %>
+        <span class="meta-sep">·</span>
+        <% post.tags.forEach(function (t) { %>
+          <a class="meta-link tag" href="<%- url_for(t.path) %>">#<%= t.name %></a>
+        <% }) %>
+      <% } %>
+    </div>
+    <% if (ex) { %><p class="excerpt"><%= ex %></p><% } %>
+    <a class="read-more" href="<%- url_for(post.path) %>">阅读全文 →</a>
+  </article>
+<% }) %>

@@ -1,0 +1,15 @@
+<div class="panel page-card">
+  <h1 class="page-title">分类</h1>
+  <% if (site.categories && site.categories.length) { %>
+    <div class="cat-grid">
+      <% site.categories.sort('name').forEach(function (c) { %>
+        <a class="cat-card" href="<%- url_for(c.path) %>">
+          <span class="cat-name"><%= c.name %></span>
+          <span class="cat-count"><%= c.posts.length %> 篇</span>
+        </a>
+      <% }) %>
+    </div>
+  <% } else { %>
+    <p class="meta">暂无分类。</p>
+  <% } %>
+</div>

@@ -1,0 +1,14 @@
+<section class="panel profile">
+  <img class="profile-avatar" src="<%- url_for(theme.avatar) %>" alt="<%= theme.author %>">
+  <div class="profile-info">
+    <div class="profile-name"><%= theme.author %></div>
+    <div class="profile-motto"><%= theme.subtitle %></div>
+    <% if (theme.links && theme.links.length) { %>
+      <div class="profile-links">
+        <% theme.links.forEach(function (l) { %>
+          <a class="chip" href="<%= l.url %>" target="_blank" rel="noopener"><%= l.name %></a>
+        <% }) %>
+      </div>
+    <% } %>
+  </div>
+</section>

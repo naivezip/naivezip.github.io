@@ -1,0 +1,17 @@
+# Parchment 主题配置（米格色 / pi.dev 风格）
+
+# 导航菜单
+menu:
+  首页: /
+  分类: /categories/
+  归档: /archives/
+  搜索: /search/
+  关于: /about/
+
+# 个人信息（首页与关于页的资料卡）
+avatar: /images/avatar.jpg
+author: naive
+subtitle: 天道酬勤
+links:
+  - name: GitHub
+    url: https://github.com/naivezip

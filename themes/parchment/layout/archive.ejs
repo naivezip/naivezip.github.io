@@ -1,0 +1,26 @@
+<div class="panel page-card">
+  <h1 class="page-title">
+    <% if (is_category()) { %>分类：<%= page.category %>
+    <% } else if (is_tag()) { %>标签：<%= page.tag %>
+    <% } else { %>归档<% } %>
+  </h1>
+  <%
+    var years = {};
+    page.posts.forEach(function (p) {
+      var y = date(p.date, 'YYYY');
+      (years[y] = years[y] || []).push(p);
+    });
+    var keys = Object.keys(years).sort().reverse();
+  %>
+  <% keys.forEach(function (y) { %>
+    <div class="archive-year"><%= y %></div>
+    <ul class="archive-list">
+      <% years[y].forEach(function (p) { %>
+        <li>
+          <time><%= date(p.date, 'MM-DD') %></time>
+          <a href="<%- url_for(p.path) %>"><%= p.title || '(无标题)' %></a>
+        </li>
+      <% }) %>
+    </ul>
+  <% }) %>
+</div>

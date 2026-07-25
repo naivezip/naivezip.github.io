@@ -1,0 +1,9 @@
+<% if (page.path && page.path.indexOf('about/') === 0) { %>
+  <%- partial('_partial/profile') %>
+<% } %>
+<article class="panel article">
+  <header class="article-header">
+    <h1 class="article-title"><%= page.title %></h1>
+  </header>
+  <div class="article-content"><%- page.content %></div>
+</article>

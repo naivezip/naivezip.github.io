@@ -1,0 +1,16 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%
+    var pageTitle = config.title;
+    if (page.title) pageTitle = page.title + ' · ' + config.title;
+    else if (is_archive()) pageTitle = '归档 · ' + config.title;
+    else if (is_category()) pageTitle = '分类：' + page.category + ' · ' + config.title;
+    else if (is_tag()) pageTitle = '标签：' + page.tag + ' · ' + config.title;
+  %>
+  <title><%= pageTitle %></title>
+  <% if (config.description) { %><meta name="description" content="<%= config.description %>"><% } %>
+  <meta name="author" content="<%= config.author %>">
+  <link rel="icon" href="<%- url_for(theme.avatar || '/images/avatar.jpg') %>">
+  <link rel="stylesheet" href="<%- url_for('/css/style.css') %>">
+</head>
