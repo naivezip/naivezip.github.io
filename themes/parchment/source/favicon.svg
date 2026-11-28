@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Be AI-Native">
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#FAF9F6" stroke="#1C1917" stroke-opacity="0.14" stroke-width="2"/>
+  <text x="15" y="45" fill="#1C1917" font-family="Georgia, 'Times New Roman', serif" font-size="40" font-weight="600" letter-spacing="-0.02em">B</text>
+  <circle cx="48" cy="41.5" r="3.6" fill="#9E4B35"/>
+  <rect x="16" y="51.5" width="32" height="2" rx="1" fill="#9E4B35" fill-opacity="0.45"/>
+</svg>
