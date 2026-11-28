@@ -1044,7 +1044,8 @@ figure.highlight td {
   vertical-align: top;
 }
 
-figure.highlight .gutter {
+.prose figure.highlight td.gutter,
+figure.highlight td.gutter {
   padding: 14px 12px 14px 16px;
   border-right: 1px solid var(--border);
   color: var(--ink-faint);
@@ -1054,7 +1055,8 @@ figure.highlight .gutter {
   opacity: 0.72;
 }
 
-figure.highlight .code {
+.prose figure.highlight td.code,
+figure.highlight td.code {
   padding: 14px 18px;
   width: 100%;
 }
@@ -1450,6 +1452,16 @@ figure.highlight .line.marked {
 
 #modal-search-input:focus-visible {
   outline: none;
+}
+
+#modal-search-input::-webkit-search-cancel-button,
+#modal-search-input::-webkit-search-decoration,
+#search-input::-webkit-search-cancel-button,
+#search-input::-webkit-search-decoration,
+.search-page-input::-webkit-search-cancel-button,
+.search-page-input::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .search-esc {
@@ -1896,8 +1908,15 @@ figure.highlight .line.marked {
     margin: 0;
     gap: 18px;
     padding-top: 10px;
+    padding-bottom: 3px;
     border-top: 1px solid var(--border);
     overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+  }
+
+  .site-nav::-webkit-scrollbar {
+    display: none;
   }
 
   .home-intro {
@@ -1942,16 +1961,22 @@ figure.highlight .line.marked {
     font-size: 1.06rem;
   }
 
-  figure.highlight .code,
+  .prose table th,
+  .prose table td {
+    padding: 8px 10px;
+  }
+
+  .prose figure.highlight td.gutter,
+  figure.highlight td.gutter {
+    padding: 12px 10px 12px 12px;
+  }
+
+  .prose figure.highlight td.code,
+  figure.highlight td.code,
   .prose > pre,
   .code-block > pre {
     padding: 12px 14px;
     font-size: 0.8rem;
-  }
-
-  .prose table th,
-  .prose table td {
-    padding: 8px 10px;
   }
 
   .post-nav {
