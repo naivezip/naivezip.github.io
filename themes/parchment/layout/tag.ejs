@@ -1,3 +1,6 @@
-<div class="section-label">标签 / <%= page.tag %></div>
+<header class="page-header">
+  <div class="section-eyebrow">标签</div>
+  <h1 class="page-title">#<%= page.tag %></h1>
+</header>
 <%- partial('_partial/post-list', { posts: page.posts }) %>
 <%- partial('_partial/pagination') %>

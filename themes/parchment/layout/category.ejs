@@ -1,3 +1,6 @@
-<div class="section-label">分类 / <%= page.category %></div>
+<header class="page-header">
+  <div class="section-eyebrow">分类</div>
+  <h1 class="page-title"><%= page.category %></h1>
+</header>
 <%- partial('_partial/post-list', { posts: page.posts }) %>
 <%- partial('_partial/pagination') %>

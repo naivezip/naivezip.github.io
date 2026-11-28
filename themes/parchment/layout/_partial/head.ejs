@@ -7,10 +7,20 @@
     else if (is_archive()) pageTitle = '归档 · ' + config.title;
     else if (is_category()) pageTitle = '分类：' + page.category + ' · ' + config.title;
     else if (is_tag()) pageTitle = '标签：' + page.tag + ' · ' + config.title;
+
+    var metaDesc = page.description || '';
+    if (!metaDesc && page.excerpt) {
+      metaDesc = strip_html(page.excerpt).trim().replace(/\s+/g, ' ').slice(0, 160);
+    }
+    if (!metaDesc) {
+      metaDesc = config.description || theme.subtitle || '';
+    }
   %>
   <title><%= pageTitle %></title>
-  <% if (config.description) { %><meta name="description" content="<%= config.description %>"><% } %>
+  <% if (metaDesc) { %><meta name="description" content="<%= metaDesc %>"><% } %>
   <meta name="author" content="<%= config.author %>">
-  <link rel="icon" href="<%- url_for(theme.avatar || '/images/avatar.jpg') %>">
+  <link rel="icon" href="<%- url_for('/favicon.svg') %>" type="image/svg+xml">
   <link rel="stylesheet" href="<%- url_for('/css/style.css') %>">
+  <script>window.SEARCH_INDEX_URL = '<%- url_for('/search.json') %>';</script>
+  <script src="<%- url_for('/js/app.js') %>" defer></script>
 </head>

@@ -6,7 +6,14 @@ function strip(str) {
   return String(str || '')
     .replace(/<script[\s\S]*?<\/script>/gi, ' ')
     .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<td[^>]*class="[^"]*gutter[^"]*"[^>]*>[\s\S]*?<\/td>/gi, ' ')
     .replace(/<[^>]*>/g, ' ')
+    .replace(/&nbsp;/gi, ' ')
+    .replace(/&amp;/gi, '&')
+    .replace(/&lt;/gi, '<')
+    .replace(/&gt;/gi, '>')
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;|&apos;/gi, "'")
     .replace(/&[a-z#0-9]+;/gi, ' ')
     .replace(/\s+/g, ' ')
     .trim();
@@ -21,7 +28,7 @@ hexo.extend.generator.register('search-index', function (locals) {
       categories: post.categories ? post.categories.map(function (c) { return c.name; }) : [],
       tags: post.tags ? post.tags.map(function (t) { return t.name; }) : [],
       excerpt: strip(post.excerpt).slice(0, 200),
-      content: strip(post.content).slice(0, 3000)
+      content: strip(post.content).slice(0, 5000)
     };
   });
   return {

@@ -1,19 +1,23 @@
-<header class="site-nav">
-  <div class="nav-inner container">
-    <a class="brand" href="<%- url_for('/') %>"><%= config.title %></a>
-    <nav class="menu">
+<header class="site-header">
+  <div class="header-inner container">
+    <a class="site-brand" href="<%- url_for('/') %>"><%= config.title %></a>
+    <nav class="site-nav" aria-label="主导航">
       <%
         var p = page.path || '';
         for (var name in theme.menu) {
           var url = theme.menu[name];
+          if (!url || url === '/search/' || url === '/search') continue;
           var key = url.replace(/^\//, '').replace(/\/$/, '');
-          var active = key === '' ? is_home() : (p === key + '/index.html' || p.indexOf(key + '/') === 0);
+          var active = key === ''
+            ? is_home()
+            : (p === key + '/index.html' || p.indexOf(key + '/') === 0);
       %>
-        <a class="menu-link<%= active ? ' active' : '' %>" href="<%- url_for(url) %>"><%= name %></a>
+        <a class="nav-link<%= active ? ' is-active' : '' %>" href="<%- url_for(url) %>"<%- active ? ' aria-current="page"' : '' %>><%= name %></a>
       <% } %>
     </nav>
-    <form class="nav-search" action="<%- url_for('/search/') %>" method="get" role="search">
-      <input type="search" name="q" placeholder="搜索…" aria-label="搜索文章">
-    </form>
+    <button class="search-trigger" type="button" id="search-trigger" aria-label="搜索文章" aria-haspopup="dialog" aria-controls="search-modal">
+      <span class="search-trigger-label">搜索</span>
+      <kbd class="search-kbd">⌘K</kbd>
+    </button>
   </div>
 </header>

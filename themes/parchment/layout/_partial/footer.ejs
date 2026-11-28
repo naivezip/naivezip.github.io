@@ -1,6 +1,10 @@
 <footer class="site-footer">
-  <div class="container footer-inner">
+  <div class="footer-inner container">
     <span>© <%= new Date().getFullYear() %> <%= config.author %> · <%= config.title %></span>
-    <span class="footer-note">Powered by Hexo · Theme Parchment</span>
+    <div class="footer-links">
+      <a href="https://github.com/naivezip" target="_blank" rel="noopener">GitHub</a>
+      <a href="<%- url_for('/search/') %>">搜索</a>
+      <a href="#top" class="back-to-top">返回顶部 ↑</a>
+    </div>
   </div>
 </footer>

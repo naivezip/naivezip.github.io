@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="<%= config.language || 'zh-CN' %>">
 <%- partial('_partial/head') %>
-<body>
+<body id="top">
   <%- partial('_partial/header') %>
-  <main class="container">
+  <main class="site-main container">
     <%- body %>
   </main>
   <%- partial('_partial/footer') %>
+  <%- partial('_partial/search-modal') %>
 </body>
 </html>

@@ -1,33 +1,56 @@
-<article class="panel article">
-  <header class="article-header">
-    <h1 class="article-title"><%= page.title %></h1>
-    <div class="meta">
-      <time datetime="<%= date(page.date, 'YYYY-MM-DD') %>"><%= date(page.date, 'YYYY-MM-DD') %></time>
-      <% if (page.categories && page.categories.length) { %>
-        <span class="meta-sep">·</span>
-        <% page.categories.forEach(function (c) { %>
-          <a class="meta-link" href="<%- url_for(c.path) %>"><%= c.name %></a>
-        <% }) %>
-      <% } %>
-      <% if (page.tags && page.tags.length) { %>
-        <span class="meta-sep">·</span>
-        <% page.tags.forEach(function (t) { %>
-          <a class="meta-link tag" href="<%- url_for(t.path) %>">#<%= t.name %></a>
-        <% }) %>
-      <% } %>
+<% var stats = reading_stats(page.content); %>
+<div class="article-shell">
+  <article class="article">
+    <header class="article-header">
+      <h1 class="article-title"><%= page.title %></h1>
+      <div class="article-meta">
+        <time datetime="<%= date(page.date, 'YYYY-MM-DD') %>"><%= date(page.date, 'YYYY-MM-DD') %></time>
+        <span class="meta-sep" aria-hidden="true">·</span>
+        <span><%= stats.formatted %></span>
+        <% if (page.categories && page.categories.length) { %>
+          <span class="meta-sep" aria-hidden="true">·</span>
+          <% page.categories.forEach(function (c) { %>
+            <a class="meta-cat" href="<%- url_for(c.path) %>"><%= c.name %></a>
+          <% }) %>
+        <% } %>
+        <% if (page.tags && page.tags.length) { %>
+          <span class="meta-sep" aria-hidden="true">·</span>
+          <% page.tags.forEach(function (t) { %>
+            <a class="meta-tag" href="<%- url_for(t.path) %>">#<%= t.name %></a>
+          <% }) %>
+        <% } %>
+      </div>
+    </header>
+    <details class="toc-mobile" id="toc-mobile" hidden>
+      <summary class="toc-mobile-summary">文章目录</summary>
+      <nav class="toc-mobile-nav" aria-label="文章目录"></nav>
+    </details>
+    <div class="article-content prose"><%- page.content %></div>
+  </article>
+  <aside class="toc-aside" id="toc-aside" aria-label="文章目录" hidden>
+    <div class="toc-sticky">
+      <div class="toc-label">目录</div>
+      <nav class="toc-nav"></nav>
     </div>
-  </header>
-  <div class="article-content"><%- page.content %></div>
-</article>
-<nav class="post-nav">
-  <span>
-    <% if (page.prev) { %>
-      <a class="chip" href="<%- url_for(page.prev.path) %>">← <%= page.prev.title || '上一篇' %></a>
-    <% } %>
-  </span>
-  <span>
-    <% if (page.next) { %>
-      <a class="chip" href="<%- url_for(page.next.path) %>"><%= page.next.title || '下一篇' %> →</a>
-    <% } %>
-  </span>
+  </aside>
+</div>
+<% if (page.prev || page.next) { %>
+<nav class="post-nav" aria-label="文章导航">
+  <% if (page.prev) { %>
+    <a class="post-nav-item post-nav-prev" href="<%- url_for(page.prev.path) %>">
+      <span class="post-nav-label">← 上一篇</span>
+      <span class="post-nav-title"><%= page.prev.title || '(无标题)' %></span>
+    </a>
+  <% } else { %>
+    <span></span>
+  <% } %>
+  <% if (page.next) { %>
+    <a class="post-nav-item post-nav-next" href="<%- url_for(page.next.path) %>">
+      <span class="post-nav-label">下一篇 →</span>
+      <span class="post-nav-title"><%= page.next.title || '(无标题)' %></span>
+    </a>
+  <% } else { %>
+    <span></span>
+  <% } %>
 </nav>
+<% } %>

@@ -1,11 +1,15 @@
 <% if (page.total && page.total > 1) { %>
-<nav class="pagination">
+<nav class="pagination" aria-label="分页导航">
   <% if (page.prev) { %>
-    <a class="chip" href="<%- url_for(page.prev_link) %>">← 上一页</a>
-  <% } else { %><span></span><% } %>
-  <span class="page-num"><%= page.current %> / <%= page.total %></span>
+    <a class="page-link" href="<%- url_for(page.prev_link) %>">← 上一页</a>
+  <% } else { %>
+    <span></span>
+  <% } %>
+  <span class="page-status"><%= page.current %> / <%= page.total %></span>
   <% if (page.next) { %>
-    <a class="chip" href="<%- url_for(page.next_link) %>">下一页 →</a>
-  <% } else { %><span></span><% } %>
+    <a class="page-link" href="<%- url_for(page.next_link) %>">下一页 →</a>
+  <% } else { %>
+    <span></span>
+  <% } %>
 </nav>
 <% } %>
